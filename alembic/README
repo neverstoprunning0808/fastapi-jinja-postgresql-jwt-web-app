@@ -1,0 +1,6 @@
+Generic single-database configuration.
+
+# alembic init alembic
+# update config for DB_url and update Base model
+# alembic revision --autogenerate -m "create user and blog tables"
+# alembic upgrade head
