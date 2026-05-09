@@ -12,8 +12,13 @@ router = APIRouter()
 
 
 @router.post("/", response_model = ShowBlog, status_code=status.HTTP_201_CREATED)
-def create_blog(blog: BlogCreate, db: Session = Depends(get_db)):
-    blog = create_new_blog(blog=blog, db=db, author_id=1)
+def create_blog(blog: BlogCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    blog = create_new_blog(blog=blog, db=db, author_id=current_user.id)
+    if isinstance(blog, dict):
+        raise HTTPException(
+            detail=blog.get("error"),
+            status_code=status.HTTP_400_BAD_REQUEST
+        )
     return blog
 
 

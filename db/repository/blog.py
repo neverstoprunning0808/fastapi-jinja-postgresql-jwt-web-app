@@ -26,7 +26,7 @@ def retrieve_all_blogs(db:Session):
     return blogs
 
 
-def update_blog_by_id(blog: BlogUpdate, id: int, db:Session, author_id: int = 1):
+def update_blog_by_id(blog: BlogUpdate, id: int, db:Session, author_id: int):
     blog_in_db = db.query(Blog).filter(Blog.id==id).first()
     if not blog_in_db:
         return {"error": f"Blog with id {id} does not exist."}
