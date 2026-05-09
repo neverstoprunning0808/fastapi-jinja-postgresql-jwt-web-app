@@ -1,22 +1,14 @@
 fastapi
 uvicorn
-
 SQLAlchemy
-
-# psycopg2
 psycopg2-binary
 alembic
 pydantic[email]
+passlib
 bcrypt==3.2.2
 passlib[bcrypt]
-
-# pip uninstall bcrypt passlib -y
-# pip install "bcrypt==3.2.2"
-# pip install "passlib[bcrypt]"
 httpx
-
 python-jose
 python-multipart
-
 jinja2
 aiofiles
